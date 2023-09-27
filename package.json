@@ -1,0 +1,23 @@
+{
+  "name": "svelte-wordpress-components",
+  "version": "0.0.1",
+  "description": "Some premade Wordpress-ready components for common stuff like buttons, forms and tables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-norwood-young/svelte-wordpress-components.git"
+  },
+  "keywords": [
+    "Svelte",
+    "Wordpress"
+  ],
+  "author": "Jason Norwood-Young (jason@10layer.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-norwood-young/svelte-wordpress-components/issues"
+  },
+  "homepage": "https://github.com/j-norwood-young/svelte-wordpress-components#readme"
+}
