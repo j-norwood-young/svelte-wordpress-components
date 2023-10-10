@@ -1,6 +1,6 @@
 {
   "name": "svelte-wordpress-components",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Some premade Wordpress-ready components for common stuff like buttons, forms and tables",
   "main": "index.js",
   "scripts": {

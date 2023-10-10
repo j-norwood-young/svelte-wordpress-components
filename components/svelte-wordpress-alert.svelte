@@ -11,7 +11,7 @@
     export let dismissible = true;
 </script>
 
-<div class="notice notice-{type}" class:is-dismissible={dismissible}>
+<div class="notice notice-{type} {$$restProps.class || ''}" class:is-dismissible={dismissible}>
     {#if display_icon}
     <span class="dashicons dashicons-{type}"></span>
     {/if}

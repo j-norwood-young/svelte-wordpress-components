@@ -17,11 +17,13 @@ function handleClick() {
 
 ## Components
 
-- [Alert](#alert)
-- [Button](#button)
-- [FormInput](#forminput)
-- [Form](#form)
-- [ListTable](#listtable)
+| Name | Description | Individual Component |
+| --- | --- | --- |
+| [Alert](#alert) | An alert. | [Alert.svelte](components/Alert.svelte) |
+| [Button](#button) | A button. | [Button.svelte](components/Button.svelte) |
+| [FormInput](#forminput) | A form input. | [FormInput.svelte](components/FormInput.svelte) |
+| [FormTable](#formtable) | A form table. | [FormTable.svelte](components/FormTable.svelte) |
+| [ListTable](#listtable) | A list table. | [ListTable.svelte](components/ListTable.svelte) |
 
 Missing a component? Ask for it, or send me a pull request.
 
@@ -42,6 +44,7 @@ import { Alert } from 'svelte-wordpress-components';
 | type | string | 'info' | The type of alert. Can be 'info', 'success', 'warning', or 'error'. |
 | dismissible | boolean | false | Whether the alert can be dismissed. |
 | display_icon | boolean | true | Whether to display an icon. |
+| class | string | null | The classes of the alert. |
 
 ### Button
 
@@ -69,6 +72,7 @@ import { Button } from 'svelte-wordpress-components';
 | aria_label | string | null | The aria-label of the button. |
 | aria_hidden | boolean | false | Whether the button is aria-hidden. |
 | large | boolean | false | Whether the button is large. |
+| small | boolean | false | Whether the button is small. |
 | warning | boolean | false | Whether the button is a warning button. |
 | danger | boolean | false | Whether the button is a danger button. |
 | link | boolean | false | Whether the button is a link. |
@@ -93,6 +97,7 @@ import { FormInput } from 'svelte-wordpress-components';
 | type | string | 'text' | The type of input. Can be 'text', 'email', 'password', 'number', 'url', 'tel', 'date', 'time', 'datetime-local', 'month', 'week', 'color', 'checkbox', 'radio', 'textarea', 'select', 'file', or 'hidden'. |
 | value | string | null | The value of the input. |
 | values | array | [] | The values of radio and checkbox input. |
+| class | string | null | The classes of the alert. |
 | placeholder | string | null | The placeholder of the input. |
 | required | boolean | false | Whether the input is required. |
 | readonly | boolean | false | Whether the input is readonly. |
@@ -108,17 +113,26 @@ import { FormInput } from 'svelte-wordpress-components';
 | cols | string | null | The cols of a textarea input. |
 | wrap | string | null | Whether to wordwrap a textarea input. |
 
-### Form
+### Form Table
+
+NOTE: Previously called Form
 
 ```javascript
 <script>
-import { Form, FormInput } from 'svelte-wordpress-components';
+import { FormTable, FormInput } from 'svelte-wordpress-components';
 </script>
 
-<Form>
+<FormTable>
     <FormInput label="Name" name="name" value="John Doe" />
-</Form>
+</FormTable>
 ```
+
+#### Props
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| class | string | null | The classes of the alert. |
+| id | string | null | The ID of the form. |
 
 ### ListTable
 
