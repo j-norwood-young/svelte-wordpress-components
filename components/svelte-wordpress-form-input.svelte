@@ -6,6 +6,7 @@
     export let value = "";
     export let values = [];
     export let placeholder = "";
+    export let description = "";
     export let required = false;
     export let readonly = false;
     export let disabled = false;
@@ -107,6 +108,9 @@
             {/if}
         {:else if (type === "textarea")}
         <textarea bind:value={value} {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled} {rows} {cols} {wrap}></textarea>
+        {/if}
+        {#if (description)}
+        <p class="description">{description}</p>
         {/if}
     </td>
 </tr>

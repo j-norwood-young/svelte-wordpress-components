@@ -97,6 +97,7 @@ import { FormInput } from 'svelte-wordpress-components';
 | type | string | 'text' | The type of input. Can be 'text', 'email', 'password', 'number', 'url', 'tel', 'date', 'time', 'datetime-local', 'month', 'week', 'color', 'checkbox', 'radio', 'textarea', 'select', 'file', or 'hidden'. |
 | value | string | null | The value of the input. |
 | values | array | [] | The values of radio and checkbox input. |
+| description | string | null | A description of the input that will display below the input. |
 | class | string | null | The classes of the alert. |
 | placeholder | string | null | The placeholder of the input. |
 | required | boolean | false | Whether the input is required. |
