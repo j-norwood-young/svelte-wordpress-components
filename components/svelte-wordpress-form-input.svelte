@@ -1,10 +1,10 @@
-<script>
-    export let id = null;
-    export let name = null;
+<script type="ts">
+    export let id: string | null | undefined = null;
+    export let name: string | null | undefined = null;
     export let label = "";
     export let type = "text"; 
     export let value = "";
-    export let values = [];
+    export let values: Array<string> = [];
     export let placeholder = "";
     export let description = "";
     export let required = false;
@@ -13,13 +13,13 @@
     export let options = [];
     export let multiple = false;
     export let checked = false;
-    export let min = null;
-    export let max = null;
-    export let step = null;
-    export let pattern = null;
-    export let rows = null;
-    export let cols = null;
-    export let wrap = null;
+    export let min: number | null = null;
+    export let max: number | null = null;
+    export let step: number | null = null;
+    export let pattern: string | null = null;
+    export let rows: number | null = null;
+    export let cols: number | null = null;
+    export let wrap = false;
 
     
     $: if (type === "date" && value) {
@@ -27,7 +27,7 @@
     }
     
 
-    function parse_date(d) {
+    function parse_date(d: string | Date | number): string {
         const date = new Date(d);
         const year = date.getFullYear();
         const month = date.getMonth() + 1;

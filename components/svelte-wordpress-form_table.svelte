@@ -1,5 +1,5 @@
-<script>
-    export let id = null;
+<script type="ts">
+    export let id: string | null | undefined = null;
 </script>
 
 <table {id} class="form-table {$$restProps.class || ''}">
