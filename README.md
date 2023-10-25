@@ -60,10 +60,7 @@ import { Button } from 'svelte-wordpress-components';
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| href | string | null | The URL to link to. |
 | primary | boolean | false | Whether the button is a primary button. |
-| target | string | null | The target of the link, eg '_blank' |
-| rel | string | null | The rel of the link, eg 'noopener' |
 | title | string | null | The title of the link. |
 | type | string | 'button' | The type of button. Can be 'button', 'submit', or 'reset'. |
 | id | string | null | The ID of the button. |

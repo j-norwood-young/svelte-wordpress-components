@@ -1,4 +1,4 @@
-<script type="ts">
+<script lang="ts">
     export let id: string | null | undefined = null;
     export let name: string | null | undefined = null;
     export let label = "";
@@ -10,20 +10,21 @@
     export let required = false;
     export let readonly = false;
     export let disabled = false;
-    export let options = [];
+    export let options: any = [];
     export let multiple = false;
     export let checked = false;
-    export let min: number | null = null;
-    export let max: number | null = null;
+    export let min: number | string | null = null;
+    export let max: number | string | null = null;
     export let step: number | null = null;
     export let pattern: string | null = null;
     export let rows: number | null = null;
     export let cols: number | null = null;
-    export let wrap = false;
-
+    export let wrap: string | null = null;
     
     $: if (type === "date" && value) {
         value = parse_date(value);
+        if (min) min = parse_date(min);
+        if (max) max = parse_date(max);
     }
     
 
@@ -59,39 +60,31 @@
         {:else if (type === "range")}
         <input bind:value={value} type="range" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled} {min} {max} {step}>
         {:else if (type === "date")}
-        <input bind:value={value} type="date" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input bind:value={value} type="date" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled} {min} {max} {step}>
         {:else if (type === "month")}
-        <input bind:value={value} type="month" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input bind:value={value} type="month" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled} {min} {max} {step}>
         {:else if (type === "week")}
-        <input bind:value={value} type="week" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input bind:value={value} type="week" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled} {min} {max} {step}>
         {:else if (type === "time")}
-        <input bind:value={value} type="time" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input bind:value={value} type="time" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled} {min} {max} {step}>
         {:else if (type === "datetime-local")}
-        <input bind:value={value} type="datetime-local" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input bind:value={value} type="datetime-local" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled} {min} {max} {step}>
         {:else if (type === "color")}
         <input bind:value={value} type="color" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
         {:else if (type === "checkbox")}
-            {#if (multiple)}
-                {#each options as option}
-                    <input bind:group={values} type="checkbox" 
-    {name} value={option.value}>
-                {/each}
-            {:else}
-                <input bind:checked={checked} type="checkbox" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
-            {/if}
+            <input bind:checked={checked} type="checkbox" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
         {:else if (type === "radio")}
             {#each options as option}
-            <input bind:group={values} type="radio" 
-{name} value={option.value}>
+                <input bind:group={value} type="radio" name={option.name} value={option.value}>&nbsp;{option.label}<br />
             {/each}
         {:else if (type === "file")}
         <input bind:value={value} type="file" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
         {:else if (type === "submit")}
-        <input bind:value={value} type="submit" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input value={label} type="submit" {id} class="{$$restProps.class || ''}" {name} {disabled}>
         {:else if (type === "reset")}
-        <input bind:value={value} type="reset" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input value={label} type="reset" {id} class="{$$restProps.class || ''}" {name} {disabled}>
         {:else if (type === "button")}
-        <input bind:value={value} type="button" {id} class="{$$restProps.class || ''}" {name} {required} {readonly} {disabled}>
+        <input value={label} type="button" {id} class="{$$restProps.class || ''}" {name} {disabled}>
         {:else if (type === "select")}
             {#if (multiple)}
             <select bind:value={value} {id} class="{$$restProps.class || ''}" {name} multiple>

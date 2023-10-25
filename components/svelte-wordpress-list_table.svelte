@@ -8,16 +8,22 @@
         number = "number",
         boolean = "boolean",
         unsafe = "unsafe",
+        component = "component"
     }
 
     interface Header {
         name: string;
         key: string;
-        type: HeaderType;
+        type: HeaderType | string;
+        width_px?: number;
     }
 
     export let headers: Header[] = [];
-    export let data = [];
+    export let data: any[] = [];
+    export let striped = true;
+    export let list_table = true;
+    export let widefat = true;
+    export let fixed = true;
 
     function format_date(date: string) {
         if (!date) return "";
@@ -27,17 +33,17 @@
     }
 </script>
 
-<table class="wp-list-table widefat fixed striped table-view-list">
+<table class:striped class:wp-list-table={list_table} class:widefat class:fixed>
     <thead>
         <tr>
             {#each headers as header}
                 {#if header.type === "select"}
-                <td class="manage-column check-column">
+                <td class="manage-column check-column" >
                     <label class="screen-reader-text" for="">Select All</label> 
                     <input class="" type="checkbox">
                 </td>
                 {:else}
-                <th scope="col" class="manage-column">{header.name}</th>
+                <th scope="col" class="manage-column" style:width={`${header.width_px}px`}>{header.name}</th>
                 {/if}
             {/each}
         </tr>
@@ -72,7 +78,13 @@
                 </td>
                 {:else if header.type === "unsafe"}
                 <td>
+                    {#if row[header.key]}
                     {@html row[header.key]}
+                    {/if}
+                </td>
+                {:else if header.type === "component"}
+                <td>
+                    <svelte:component this={row[header.key].component} {...row[header.key].props} />
                 </td>
                 {/if}
             {/each}

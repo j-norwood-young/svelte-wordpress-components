@@ -1,10 +1,14 @@
 {
   "name": "svelte-wordpress-components",
-  "version": "0.1.1",
-  "description": "Some premade Wordpress-ready components for common stuff like buttons, forms and tables",
+  "version": "0.2.0",
+  "description": "Prebaked Wordpress-ready components for common stuff like buttons, forms and tables",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "repository": {
     "type": "git",
@@ -19,5 +23,14 @@
   "bugs": {
     "url": "https://github.com/j-norwood-young/svelte-wordpress-components/issues"
   },
-  "homepage": "https://github.com/j-norwood-young/svelte-wordpress-components#readme"
+  "homepage": "https://github.com/j-norwood-young/svelte-wordpress-components#readme",
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "@tsconfig/svelte": "^5.0.0",
+    "svelte": "^4.0.5",
+    "svelte-check": "^3.4.6",
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
 }
